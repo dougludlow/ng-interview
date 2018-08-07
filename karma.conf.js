@@ -5,13 +5,14 @@ module.exports = function(config) {
 		basePath: './app',
 
 		files: [
+			'bower_components/url-join/lib/url-join.js',
 			'bower_components/angular/angular.js',
 			'**/*.module.js',
 			'**/*.js'
 		],
 
 		exclude: [
-			'bower_components/**/!(angular.js|angular-route.js|angular-mocks.js)'
+			'bower_components/**/!(angular.js|angular-route.js|angular-mocks.js|url-join.js)'
 		],
 
 		autoWatch: true,

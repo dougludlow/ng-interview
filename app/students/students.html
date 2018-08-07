@@ -1,4 +1,27 @@
 <h2>Students</h2>
-<ul>
-	<li>Here are your students...</li>
-</ul>
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="vm.error">
+    <button type="button" class="close" aria-label="Close" ng-click="vm.error = null">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Oh snap!</strong> {{vm.error}}.
+    <a href class="alert-link" ng-click="vm.loadStudents()">Try again?</a>
+</div>
+<div class="input-group search">
+    <span class="input-group-addon">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+    <input type="text" class="form-control" placeholder="Search Students" ng-model="vm.search" />
+</div>
+<div class="list-group students">
+    <span class="list-group-item text-muted" ng-if="!vm.students">Loading students...</span>
+    <a href class="list-group-item student" ng-repeat="s in vm.students | students:vm.search track by $index" ng-click="s.expanded = !s.expanded">
+        {{s.FirstName}} {{s.LastName}}
+        <span class="text-muted">({{s.Id}})</span>
+        <i class="pull-right glyphicon" ng-class="s.expanded ? 'glyphicon-chevron-up' : 'glyphicon-chevron-down'"></i>
+        <p class="list-group-item-text" ng-show="s.expanded">
+            Favorite Food: {{s.FavoriteFood}}<br /> 
+            Favorite Color: {{s.FavoriteColor}}<br />
+			Favorite Movie: {{s.FavoriteMovie}}<br />
+        </p>
+    </a>
+</div>

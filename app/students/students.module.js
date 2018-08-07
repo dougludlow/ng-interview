@@ -2,6 +2,7 @@
 	'use strict';
 
 	angular.module('ngInterview.students', [
-		'ngRoute'
+		'ngRoute',
+		'ngInterview.api'
 	]);
 })();
